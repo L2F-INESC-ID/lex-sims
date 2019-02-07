@@ -43,9 +43,9 @@ if training a new model:
 
 or
 
-- for a corpus containing pairs of sentences:
+- for a set of pairs of sentences (corpusPairs), obtain a set of feature sets (trainset) by:
 ```
-pairs = [unicode('TEXT: ' + sentenceA + '\nHYPOTHESIS:' + sentenceB) for (sentenceA,sentenceB) in corpusPairs]
+pairs = [unicode('TEXT: ' + sentenceA + '\nHYPOTHESIS:' + sentenceB) for (sentenceA, sentenceB) in corpusPairs]
 
 cria_dict('brown-clusters-pt.txt')
 cria_tf_idf(pairs, clusterfilename='tfidf_YOUR_DATASET_ID_HERE')
@@ -53,4 +53,7 @@ cria_tf_idf(pairs, clusterfilename='tfidf_YOUR_DATASET_ID_HERE')
 trainset = [similarity_features(d, 1, 1, 1, 1, '', [], []) for d in pairs]
 ```
 
-function similarity_features is defined in MSC.py and describes all features computed for a given pair.
+function similarity_features is defined in MSC.py and describes all features computed for a given pair. 
+
+some features require the instalation of nltk specific data (such as stopwords) by https://www.nltk.org/data.html
+
