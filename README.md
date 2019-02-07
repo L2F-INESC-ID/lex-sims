@@ -57,5 +57,8 @@ trainset = [similarity_features(d, 1, 1, 1, 1, '', [], []) for d in pairs]
 
 function similarity_features is defined in MSC.py and describes all features computed for a given pair. 
 
-some features require the instalation of nltk specific data (such as stopwords) by https://www.nltk.org/data.html
+
+# hints for errors:
+
+some features may require the instalation of nltk specific data (such as stopwords) by https://www.nltk.org/data.html
 
