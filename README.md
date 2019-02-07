@@ -22,19 +22,33 @@ if just to detect the semantic similarity between 2 sentences (from 1 to 5):
 - invoke following code:
 
 ```
-    # RUN ONCE
-    with open("cacheric/kridgePoly_proporPT", 'rb') as f1:
-        clf1 = pickle.load(f1)
+# RUN ONCE
+with open("cacheric/kridgePoly_proporPT", 'rb') as f1:
+    clf1 = pickle.load(f1)
 
-    cria_dict('brown-clusters-pt.txt')
+cria_dict('brown-clusters-pt.txt')
 
-    # RUN ALWAYS
-    encPair = unicode('TEXT: ' + sys.argv[1] + '\nHYPOTHESIS:' + sys.argv[2])
-    cria_tf_idf([encPair])
-    featVec = similarity_features(encPair, 1, 1, 1, 1, '', [], [])
+# RUN ALWAYS
+encPair = unicode('TEXT: ' + sys.argv[1] + '\nHYPOTHESIS:' + sys.argv[2])
+cria_tf_idf([encPair])
+featVec = similarity_features(encPair, 1, 1, 1, 1, '', [], [])
 
-    print (str(clf1.predict(np.array(featVec).reshape(1, -1))[0]))
+print (str(clf1.predict(np.array(featVec).reshape(1, -1))[0]))
 ```
+or
+- use the web service described in function start_service of file assin-eval_l2f.py
 
 if training a new model:
 - follow the main function of assin-eval_l2f.py
+or
+- for a corpus containing pairs of sentences:
+```
+pairs = [unicode('TEXT: ' + sentenceA + '\nHYPOTHESIS:' + sentenceB) for (sentenceA,sentenceB) in corpusPairs]
+
+cria_dict('brown-clusters-pt.txt')
+cria_tf_idf(pairs, clusterfilename='tfidf_YOUR_DATASET_ID_HERE')
+
+trainset = [similarity_features(d, 1, 1, 1, 1, '', [], []) for d in pairs]
+```
+
+function similarity_features is defined in MSC.py and describes all features computed for a given pair.
