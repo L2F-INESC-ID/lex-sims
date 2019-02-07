@@ -40,7 +40,9 @@ or
 
 if training a new model:
 - follow the main function of assin-eval_l2f.py
+
 or
+
 - for a corpus containing pairs of sentences:
 ```
 pairs = [unicode('TEXT: ' + sentenceA + '\nHYPOTHESIS:' + sentenceB) for (sentenceA,sentenceB) in corpusPairs]
