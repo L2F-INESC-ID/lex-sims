@@ -4,6 +4,8 @@ Our lexical similarity measures, as employed in http://propor2016.di.fc.ul.pt/wp
 
 # requirements
 
+(I recommend Linux and the PyCharm IDE (Community edition): https://www.jetbrains.com/pycharm/)
+
 python 2.7
 
 pip install numpy scipy scikit-learn nltk web2py_utils pyter jaro_winkler
