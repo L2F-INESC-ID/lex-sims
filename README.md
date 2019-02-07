@@ -17,7 +17,7 @@ and place next to .py files
 pip install flask flask_restful
 
 
-# usage guide
+# usage
 
 if just to detect the semantic similarity between 2 sentences (from 1 to 5):
 - download previously trained models from https://drive.google.com/open?id=1oGFrKzschiPwWen0tzUBGz4IRcdnmNVc
@@ -58,7 +58,7 @@ trainset = [similarity_features(d, 1, 1, 1, 1, '', [], []) for d in pairs]
 function similarity_features is defined in MSC.py and describes all features computed for a given pair. 
 
 
-# hints for errors
+# hints
 
 some features may require the instalation of nltk specific data (such as stopwords) by https://www.nltk.org/data.html
 
